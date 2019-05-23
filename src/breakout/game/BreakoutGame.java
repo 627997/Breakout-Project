@@ -5,6 +5,10 @@
  */
 package breakout.game;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
+
 /**
  *
  * @author 627997
@@ -15,7 +19,23 @@ public class BreakoutGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        JFrame j = new JFrame ("Star Wars");
+        j.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+        j.setSize (1200, 960);
+        Environment c = new Environment();
+        j.add(c);
+        j.setVisible(true);
+        j.setLocationRelativeTo(null);
+        j.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                c.keyPressed(e);
+            }
+            @Override
+            public void keyReleased(KeyEvent e) {
+                c.keyReleased(e);
+            }
+        });
+    }
     }
     
-}
+
